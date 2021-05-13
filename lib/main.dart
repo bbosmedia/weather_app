@@ -26,6 +26,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var temp;
+  var description;
+  var currently;
+  var humidity;
+  var windSpeed;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,12 +63,56 @@ class _HomeState extends State<Home> {
                       fontSize: 40,
                       fontWeight: FontWeight.w600),
                 ),
-                Padding(padding: EdgeInsets.only(top: 10),
-                  child: Text("Rain", style: TextStyle(color: Colors.white, fontSize: 16),),
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text(
+                    "Rain",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
                 )
               ],
             ),
-          )
+          ),
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.all(20),
+            child: ListView(
+              children: [
+                ListTile(
+                  leading: FaIcon(FontAwesomeIcons.thermometerHalf),
+                  title: Text(
+                    "Temperature",
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  trailing: Text("52\u00B0"),
+                ),
+                ListTile(
+                  leading: FaIcon(FontAwesomeIcons.cloud),
+                  title: Text(
+                    "Weather",
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  trailing: Text("Cloudly"),
+                ),
+                ListTile(
+                  leading: FaIcon(FontAwesomeIcons.sun),
+                  title: Text(
+                    "TemperaHumidity",
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  trailing: Text("12"),
+                ),
+                ListTile(
+                  leading: FaIcon(FontAwesomeIcons.wind),
+                  title: Text(
+                    "WindSpeed",
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  trailing: Text("3 m/s"),
+                )
+              ],
+            ),
+          ))
         ],
       ),
     );
